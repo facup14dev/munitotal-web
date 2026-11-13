@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+api/mail-config.php
+vendor/
+*.log
+
+# Dependencias y artefactos
+node_modules
+dist
+.env
+.env.local
+# SMTP
+api/mail-config.php
