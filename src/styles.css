@@ -365,3 +365,22 @@ body { margin:0; }
   background:#852940; color:#fff; font-weight:650;
 }
 .testimonio-section__error button:hover { background:#a53855; }
+
+/* Introducción de Soluciones */
+.landing-scroll [data-pencil-id="sfueN"] {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 18px !important;
+}
+
+.landing-scroll [data-pencil-id="O6nbJ1"] {
+  flex: none !important;
+  width: 100% !important;
+}
+
+.landing-scroll [data-pencil-id="m7gF1"] {
+  flex-shrink: 1 !important;
+  width: 100% !important;
+  max-width: 1200px;
+}
