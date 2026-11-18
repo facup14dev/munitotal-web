@@ -1,5 +1,6 @@
 import { useEffect, useRef, type MouseEvent, type KeyboardEvent } from "react";
 import MapaArgentina from "./MapaArgentina";
+import { DigitalizacionDestacada, NosotrosEmpresa, TestimonioGerardo } from "./MejorasComerciales";
 
 /**
  * Port fiel de landing-scroll/index.html y scroll.css del cliente.
@@ -7,7 +8,7 @@ import MapaArgentina from "./MapaArgentina";
  * utiliza esos identificadores para revelar los elementos de la maqueta.
  */
 interface LandingScrollProps { onAction: (action: string) => void; }
-const sections: [string, string][] = [["Ejw9O","inicio"],["xm2nb","soluciones"],["WmtGi","acompanamiento"],["HoEnZ","contacto"]];
+const sections: [string, string][] = [["Ejw9O","inicio"],["xm2nb","soluciones"],["WmtGi","acompanamiento"],["nosotrosEmpresa","nosotros"],["HoEnZ","contacto"]];
 const groups = [
   ["cid50","VyvhM","CFdrG","wJixt","UWSFL","KMvqy"],
   ["l8mlT","MeFev","vqMax","evxul"], ["O6nbJ1","m7gF1"],
@@ -129,7 +130,7 @@ export default function LandingScroll({ onAction }: LandingScrollProps) {
           <a data-pencil-id="N7jUx" data-pencil-name="Cómo trabajamos" style={{"boxSizing": "border-box", "color": "#454A50", "fontFamily": "Inter, system-ui, sans-serif", "fontSize": "14px", "fontStyle": "normal", "fontWeight": "500", "letterSpacing": "0px", "lineHeight": "normal", "textAlign": "left", "whiteSpace": "nowrap"}} href="#acompanamiento" className="scroll-link">
             Cómo trabajamos
           </a>
-          <a data-pencil-id="hSOxx" data-pencil-name="Nosotros" style={{"boxSizing": "border-box", "color": "#454A50", "fontFamily": "Inter, system-ui, sans-serif", "fontSize": "14px", "fontStyle": "normal", "fontWeight": "500", "letterSpacing": "0px", "lineHeight": "normal", "textAlign": "left", "whiteSpace": "nowrap"}} href="#acompanamiento" className="scroll-link">
+          <a data-pencil-id="hSOxx" data-pencil-name="Nosotros" style={{"boxSizing": "border-box", "color": "#454A50", "fontFamily": "Inter, system-ui, sans-serif", "fontSize": "14px", "fontStyle": "normal", "fontWeight": "500", "letterSpacing": "0px", "lineHeight": "normal", "textAlign": "left", "whiteSpace": "nowrap"}} href="#nosotros" className="scroll-link">
             Nosotros
           </a>
         </div>
@@ -164,6 +165,11 @@ export default function LandingScroll({ onAction }: LandingScrollProps) {
           <div data-pencil-id="CFdrG" data-pencil-name="Descripción principal" style={{"boxSizing": "border-box", "color": "#666B70", "fontFamily": "Inter, system-ui, sans-serif", "fontSize": "17px", "fontStyle": "normal", "fontWeight": "400", "letterSpacing": "0px", "lineHeight": "28px", "textAlign": "left", "width": "510px"}}>
             Tecnología, equipamiento y servicios que conectan cada área de tu municipio. Todo integrado, con un equipo que te acompaña.
           </div>
+          <button type="button" className="hero-digitalizacion-cta" data-action="open:digitalization">
+            <span>Servicio destacado</span>
+            <strong>Digitalización municipal</strong>
+            <span aria-hidden="true">↗</span>
+          </button>
           <div data-pencil-id="wJixt" data-pencil-name="Acciones del hero" style={{"alignItems": "center", "boxSizing": "border-box", "display": "flex", "flexDirection": "row", "flexShrink": "0", "gap": "24px", "height": "fit-content", "justifyContent": "flex-start", "width": "fit-content"}}>
             <a data-pencil-id="waGdY" data-pencil-name="Solicitar asesoramiento" style={{"alignItems": "center", "backgroundColor": "#852940", "borderRadius": "5px", "boxSizing": "border-box", "display": "flex", "flexDirection": "row", "flexShrink": "0", "gap": "20px", "height": "fit-content", "justifyContent": "flex-start", "outlineOffset": "-0.5px", "outline": "1px solid #852940", "padding": "17px 22px", "width": "fit-content"}} href="#contacto" className="scroll-link">
               <div data-pencil-id="u6bYw4" data-pencil-name="Solicitar asesoramiento texto" style={{"boxSizing": "border-box", "color": "#FFFFFF", "fontFamily": "Inter, system-ui, sans-serif", "fontSize": "14px", "fontStyle": "normal", "fontWeight": "600", "letterSpacing": "0px", "lineHeight": "normal", "textAlign": "left", "whiteSpace": "nowrap"}}>
@@ -237,6 +243,7 @@ export default function LandingScroll({ onAction }: LandingScrollProps) {
           </div>
         </div>
       </div>
+      <DigitalizacionDestacada onAction={onAction}/>
       <div data-pencil-id="xm2nb" data-pencil-name="Soluciones · De la A a la Z" style={{"alignItems": "flex-start", "backgroundColor": "#FFFFFF", "boxSizing": "border-box", "display": "flex", "flexDirection": "column", "flexShrink": "0", "gap": "44px", "height": "fit-content", "justifyContent": "flex-start", "padding": "80px 72px", "width": "100%"}} id="soluciones">
         <div data-pencil-id="sfueN" data-pencil-name="Introducción a soluciones" style={{"alignItems": "flex-end", "boxSizing": "border-box", "display": "flex", "flexDirection": "row", "flexShrink": "0", "gap": "80px", "height": "fit-content", "justifyContent": "space-between", "width": "100%"}}>
           <div data-pencil-id="O6nbJ1" data-pencil-name="Título de soluciones" style={{"alignItems": "flex-start", "boxSizing": "border-box", "display": "flex", "flexDirection": "column", "flexShrink": "0", "gap": "16px", "height": "fit-content", "justifyContent": "flex-start", "width": "690px"}}>
@@ -455,6 +462,8 @@ export default function LandingScroll({ onAction }: LandingScrollProps) {
           </div>
         </div>
       </div>
+      <NosotrosEmpresa/>
+      <TestimonioGerardo onAction={onAction}/>
       <MapaArgentina onContact={() => onAction("open:contact")}/>
       <div data-pencil-id="HoEnZ" data-pencil-name="Contacto · Próximo paso" style={{"alignItems": "center", "backgroundColor": "#EEE5E2", "boxSizing": "border-box", "display": "flex", "flexDirection": "row", "flexShrink": "0", "gap": "90px", "height": "fit-content", "justifyContent": "flex-start", "padding": "76px 72px", "width": "100%"}} id="contacto">
         <div data-pencil-id="oXHjc" data-pencil-name="Invitación a conversar" style={{"alignItems": "flex-start", "boxSizing": "border-box", "display": "flex", "flexDirection": "column", "flex": "1 1 0", "gap": "18px", "height": "fit-content", "justifyContent": "flex-start"}}>
@@ -501,6 +510,7 @@ export default function LandingScroll({ onAction }: LandingScrollProps) {
             <a data-pencil-id="j0vti" data-pencil-name="Cómo trabajamos pie" style={{"boxSizing": "border-box", "color": "#494E53", "fontFamily": "Inter, system-ui, sans-serif", "fontSize": "12px", "fontStyle": "normal", "fontWeight": "500", "letterSpacing": "0px", "lineHeight": "normal", "textAlign": "left", "whiteSpace": "nowrap"}} href="#acompanamiento" className="scroll-link">
               Cómo trabajamos
             </a>
+            <a href="#nosotros" className="scroll-link">Nosotros</a>
             <a data-pencil-id="GW2AP" data-pencil-name="Contacto pie" style={{"boxSizing": "border-box", "color": "#494E53", "fontFamily": "Inter, system-ui, sans-serif", "fontSize": "12px", "fontStyle": "normal", "fontWeight": "500", "letterSpacing": "0px", "lineHeight": "normal", "textAlign": "left", "whiteSpace": "nowrap"}} href="#contacto" className="scroll-link">
               Contacto
             </a>

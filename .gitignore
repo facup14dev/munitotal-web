@@ -14,3 +14,8 @@ dist
 .env.local
 # SMTP
 api/mail-config.php
+
+# Video institucional: se publica directamente en IIS, nunca en GitHub/Vercel.
+public/videos/*.mp4
+public/videos/*.webm
+public/videos/*.mov

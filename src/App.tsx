@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import LandingScroll from "./LandingScroll";
 
-type ModalKey = "software" | "hardware" | "citizen" | "supplies" | "contact" | "privacy";
+type ModalKey = "software" | "hardware" | "citizen" | "supplies" | "digitalization" | "contact" | "privacy";
 type FormState = "idle" | "sending" | "success" | "error";
 
 const solutions: Record<Exclude<ModalKey, "contact" | "privacy">, {
@@ -30,7 +30,12 @@ const solutions: Record<Exclude<ModalKey, "contact" | "privacy">, {
   citizen: {
     number: "03", eyebrow: "SOLUCIONES CIUDADANAS", title: "Más cerca de cada vecino.",
     description: "Canales digitales y herramientas para simplificar el vínculo entre el municipio y las personas.",
-    items: ["Pagos en línea", "Reclamos", "Turnos", "Trámites en línea", "Portales de autogestión", "Digitalización de oficinas"],
+    items: ["Digitalización de oficinas", "Pagos en línea", "Reclamos", "Turnos", "Trámites en línea", "Portales de autogestión"],
+  },
+  digitalization: {
+    number: "05", eyebrow: "DIGITALIZACIÓN MUNICIPAL", title: "Menos papel. Más gestión y mejores servicios.",
+    description: "Acompañamos la digitalización de procesos y documentación municipal para agilizar el trabajo cotidiano y acercar los servicios a los vecinos.",
+    items: ["Digitalización de expedientes y documentación", "Firma electrónica y herramientas para la gestión digital", "Trámites y servicios en línea", "Canales digitales de atención y reclamos"],
   },
   supplies: {
     number: "04", eyebrow: "INSUMOS PARA MUNICIPIOS", title: "Todo para el trabajo diario.",
@@ -98,6 +103,7 @@ function ContactForm() {
       <select value={values.interest} onChange={e => update("interest", e.target.value)}>
         <option value="">Seleccionar una opción</option>
         <option>Software GGMM</option>
+        <option>Digitalización municipal</option>
         <option>Infraestructura y hardware</option>
         <option>Soluciones ciudadanas</option>
         <option>Insumos para municipios</option>
@@ -176,7 +182,7 @@ export default function App() {
   const open = (value: string) => {
     if (!value.startsWith("open:")) return;
     const key = value.slice(5) as ModalKey;
-    if (key === "software" || key === "hardware" || key === "citizen" || key === "supplies" || key === "contact" || key === "privacy") setModal(key);
+    if (key === "software" || key === "hardware" || key === "citizen" || key === "supplies" || key === "digitalization" || key === "contact" || key === "privacy") setModal(key);
   };
   return <>
     <LandingScroll onAction={open}/>

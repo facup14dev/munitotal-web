@@ -10,7 +10,7 @@ import { ArrowUpRight, CheckCircle2, MapPin, RotateCcw } from "lucide-react";
 export const PROVINCIAS_CON_PRESENCIA = [
   "Córdoba", "Chubut", "Santa Cruz", "Tierra del Fuego", "Neuquén",
   "San Luis", "Santiago del Estero", "Jujuy", "Salta", "Tucumán",
-  "Mendoza", "Chaco", "Santa Fe", "Formosa",
+  "Mendoza", "Chaco", "Santa Fe", "Formosa", "Catamarca", "Corrientes",
 ] as const;
 
 const FUENTE_OFICIAL = [

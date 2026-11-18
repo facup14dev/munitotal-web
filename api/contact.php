@@ -43,13 +43,17 @@ if ($name === '' || $municipality === '' || $email === '' || $message === '') {
     reply_json(422, false, 'Complete los campos obligatorios.');
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) reply_json(422, false, 'El correo electrónico no es válido.');
-$interests = array('', 'Software GGMM', 'Infraestructura y hardware', 'Soluciones ciudadanas', 'Insumos para municipios', 'Consulta general');
+$interests = array('', 'Software GGMM', 'Infraestructura y hardware', 'Soluciones ciudadanas', 'Insumos para municipios', 'Digitalización municipal', 'Consulta general');
 if (!in_array($interest, $interests, true)) reply_json(422, false, 'Seleccione una opción válida.');
 
 $autoloader = dirname(__DIR__) . '/vendor/autoload.php';
 $configFile = __DIR__ . '/mail-config.php';
-if (!is_file($autoloader) || !is_file($configFile)) {
-    error_log('MuniTotal: faltan dependencias o configuración de correo.');
+if (!is_file($autoloader)) {
+    error_log('MuniTotal: falta vendor/autoload.php de PHPMailer.');
+    reply_json(503, false, 'El formulario no está disponible. Escríbanos a munitotal@inft.com.ar.');
+}
+if (!is_file($configFile)) {
+    error_log('MuniTotal: falta api/mail-config.php.');
     reply_json(503, false, 'El formulario no está disponible. Escríbanos a munitotal@inft.com.ar.');
 }
 require_once $autoloader;
